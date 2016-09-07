@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pong</title>
+        <style>
+            html, body {
+                width:100%;
+                height:100%;
+                background-color:black;
+                margin:0;
+                overflow:hidden;
+                z-index:0;
+            }
+            svg {
+                position:absolute;
+                top:0;
+                left:0;
+                z-index:1;
+            }
+            #Lbat, #Rbat {
+                position:absolute;
+                background-color:white;
+                width:6px;
+                height:80px;
+                top:200px;
+                z-index:2;
+            }
+            #Lbat {
+                left:7px;
+            }
+            #Rbat {
+                right:7px;
+            }
+            img {
+                position:absolute;
+                top:215px;
+                left:295px;
+                z-index:3;
+            }
+        </style>
+        <script type="text/javascript" src="http://gemdude46.github.io/libs/JGolf.js"></script>
+        <script type="text/javascript">
+            function rst(){
+                x=295;
+                y=215;
+                ry=ly=200;
+                ku=kd=ka=kz=false;
+                d=(Math.random()*1.74533)+(Math.random()>0.5?0.698132:3.83972);
+                dx=Math.sin(d)*4;
+                dy=Math.cos(d)*4;
+                fr();
+            }
+            function fr(){
+                if(!ps){
+                    if (ku&&ry) ry-=4;
+                    if (kd&&ry<400) ry+=4
+                    if (ka&&ly) ly-=4;
+                    if (kz&&ly<400) ly+=4
+                    x+=dx; y+=dy;
+                    if(y<0||y>430) dy*=-1;
+                    if((x>0&&x<13&&y>ly-50&&y<ly+80&&dx<0)||(x>577&&x<590&&y>ry-50&&y<ry+80&&dx>0)) dx*=-1;
+                    b.style.left=x+'px';
+                    b.style.top=y+'px';
+                    l.style.top=ly+'px';
+                    r.style.top=ry+'px';
+                }
+                setTimeout(fr,16);
+            }
+            onkeydown = function(e){
+                if (e.keyCode==38) ku = true;
+                if (e.keyCode==40) kd = true;
+                if (e.keyCode==65) ka = true;
+                if (e.keyCode==90) kz = true;
+            };
+            onkeyup = function(e){
+                if (e.keyCode==38) ku = false;
+                if (e.keyCode==40) kd = false;
+                if (e.keyCode==65) ka = false;
+                if (e.keyCode==90) kz = false;
+            };
+            onload = function(){
+                if(!(B().offsetWidth==640&&B().offsetHeight==480)) console.warn('Bad display size');
+                b=B().getElementsByTagName('IMG')[0];
+                l=EI('Lbat');
+                r=EI('Rbat');
+                ps=true;
+                rst();
+            };
+            onfocus = function(){ps=false};
+            onblur = function(){ps=true};
+        </script>
+    </head>
+    <body>
+        <div id=Lbat></div>
+        <div id=Rbat></div>
+        <img src="../images/Ball.png">
+        <svg width=640 height=480>
+            <circle cx=320 cy=240 r=100 stroke=white stroke-width=6 />
+            <rect x=317 y=40 width=6 height=440 fill=white />
+        </svg>
+    </body>
+</html>

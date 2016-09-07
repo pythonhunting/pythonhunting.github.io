@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Hunting | Screenshot</title>
+        <link rel=stylesheet type="text/css" href="style.css">
+        <script type="text/javascript" src="//gemdude46.github.io/libs/+.js"></script>
+        <script>
+            onload = function(){
+                document.getElementById('main').setContent([
+                    'Working version of the game coming soon.<br>Until then, here\'s a screenshot:',
+                    createElement('IMG', {src: location.arguments.img, style: 'width:100%;'})
+                ]);
+            };
+        </script>
+    </head>
+    <body>
+        <div class=full>
+            <img src="i/code.png" alt="CODE" id=logo_img>
+            <table id=bar>
+                <tbody>
+                    <tr>
+                        <td onclick="location.href='index.html';">Home</td>
+                        <td onclick="location.href='games.html';">Games</td>
+                        <td onclick="location.href='resources.html';">Images + Sounds</td>
+                        <td onclick="location.href='code.html';">Code</td>
+                        <td onclick="location.href='contact.html';">Contact</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <div id=main class=PM>
+                Sorry, but your browser is not supported by our website.
+            </div>
+        </div>
+    </body>
+</html>

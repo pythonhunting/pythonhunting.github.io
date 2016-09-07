@@ -1,0 +1,188 @@
+html, body, .full {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@font-face { 
+    font-family: PM;
+    src: url('fonts/permanentmarker_regular_macroman/PermanentMarker-webfont.eot');
+    src: url('fonts/permanentmarker_regular_macroman/PermanentMarker-webfont.eot?iefix') format('eot'),
+         url('fonts/permanentmarker_regular_macroman/PermanentMarker-webfont.woff') format('woff'),
+         url('fonts/permanentmarker_regular_macroman/PermanentMarker-webfont.ttf') format('truetype'),
+         url('fonts/permanentmarker_regular_macroman/PermanentMarker-webfont.svg#webfont') format('svg');
+}
+
+.PM {
+    font-family: PM;
+}
+
+#logo_img {
+    width: 100%;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    margin-top: 4em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: white;
+    vertical-align: bottom;
+}
+
+#bar {
+    width: 100%;
+    border-bottom: 4px solid black;
+    background-color: white;
+}
+
+#bar td {
+    font-family: PM;
+    text-align: center;
+    width: 20%;
+    cursor: pointer;
+}
+
+.sound_dl {
+    line-height: 32px;
+}
+
+.sound_dl > img {
+    vertical-align: middle;
+}
+
+.resource {
+    width: 150px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 5px 5px 7px #555;
+}
+
+.resource div {
+    width: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 1em;
+}
+
+.pxl {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+}
+
+.sound {
+    background-image: url("i/sound.png");
+}
+
+.resource span {
+    width: 100%;
+    text-align: center;
+    display: block;
+    height: 3em;
+    word-wrap: break-word;
+    overflow: hidden;
+    font-family: "Courier new";
+    letter-spacing: -2px;
+}
+
+#main {
+    width: 70%;
+    margin-left: 15%;
+}
+
+#resources_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#resources_table td{
+    padding-top: 1em;
+    border-bottom: 1px solid #aaa;
+}
+
+td.game {
+    width: 20%;
+    font-family: PM;
+    font-size: 200%;
+    vertical-align: top;
+}
+
+td.resources {
+    width: 80%;
+}
+
+.code_page {
+    width: 33%;
+    display: inline-block;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 140%;
+}
+
+.code_page:hover {
+    color: #333;
+}
+
+.python_code_full {
+    width: 100%;
+    background-color: #eee;
+    max-height: 75vh;
+    overflow: auto;
+    display: block;
+    border: 1px solid black;
+    white-space: nowrap;
+}
+
+.python_code_full .ln {
+    width: 4em;
+    width: 5ch;
+    display: inline-block;
+    background-color: #ddd;
+    margin-right: 0.5em;
+    text-indent: 0.5em;
+}
+
+.b_n_p {
+    font-family: initial;
+}
+
+.b_n_p > a {
+    color: black;
+    text-decoration: none;
+}
+
+.b_n_p > div {
+    float: right;
+    cursor: pointer;
+}
+
+.game_icon {
+    width: 22%;
+    margin: 1%;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 5px 5px 7px #555;
+    text-align: center;
+}
+
+@media (orientation: portrait) {
+    .game_icon {
+        width: 100%;
+    }
+}
+
+.game_icon img {
+    width: 100%;
+}

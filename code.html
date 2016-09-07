@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Hunting | Code</title>
+        <link rel=stylesheet type="text/css" href="style.css">
+        <script type="text/javascript" src="//gemdude46.github.io/libs/+.js"></script>
+        <script>
+            function asDisplayed(x){
+                return x.substring(5, x.length-3).replace(/_/g, ' - ');
+            }
+            
+            function addSyntax(x){
+                var o = '<span class=ln>1</span>', ln = 1;
+                for (var i = 0; i < x.length; i++) {
+                    o += x[i] == '\n' ? '<br><span class=ln>' + (++ln) + '</span>' : (x[i] == ' ' ? '&nbsp;' : '&#'+x.charCodeAt(i)+';');
+                }
+                return o;
+            }
+            
+            function mp(ofs){
+                AJAX('GET', 'code/ls.txt', null, function(x){
+                    var ls = x.responseText.split('\n');
+                    var np = ls[ls.indexOf(location.arguments.page)+ofs];
+                    location.href = 'code.html?page=' + encodeURIComponent(np);
+                });
+            }
+            
+            onload = function(){
+                ImportCSS('//gemdude46.github.io/libs/+.css');
+                var main = document.querySelector('#main');
+                main.setContent('Loading...');
+                if (location.arguments.page) {
+                    AJAX('GET', 'code/' + location.arguments.page, null, function(x){
+                        if (x.status == 200) {
+                            main.setContent(
+                                ['<div class=b_n_p><a href="code.html">&lt;&lt;Back</a>' + 
+                                '<div><span id=p>&lt; Previous</span>&nbsp;&nbsp;<span id=n>Next &gt;</span></div></div>Code for page ',
+                                asDisplayed(location.arguments.page), ':<br>',
+                                createElement('CODE', {class: 'python_code_full unselectable'}, addSyntax(x.responseText)),
+                                '<br><br>']
+                            );
+                            var el = document.querySelector('#p');
+                            if (location.arguments.page == 'Page_53_54.py') {
+                                el.style.color = '#aaa';
+                            } else {
+                                el.addEventListener('click', function(){
+                                    mp(-1);
+                                });
+                            }
+                            var el = document.querySelector('#n');
+                            if (location.arguments.page == 'Page_285_287.py') {
+                                el.style.color = '#aaa';
+                            } else {
+                                el.addEventListener('click', function(){
+                                    mp(1);
+                                });
+                            }
+                        } else {
+                            main.setContent(['An error occurred (', x.status + '):<br>',
+                                            createElement('IFRAME', {srcdoc: x.responseText, width: '100%'})]);
+                        }
+                    });
+                } else {
+                    AJAX('GET', 'code/ls.txt', null, function(x){
+                        if (x.status == 200) {
+                            main.setContent([
+                                            'Please select a page to view its code.<br>',
+                                            x
+                                            .responseText
+                                            .split('\n')
+                                            .filter(function(x){return (/Page_.*\.py/).test(x);})
+                                            .map(function(x){return '<div class=code_page onclick="location.href=\'code.html?page='+
+                                            encodeURIComponent(x)+'\';">'+asDisplayed(x)+'</div>'})
+                            ]);
+                            
+                        } else {
+                            main.setContent(['An error occurred (', x.status + '):<br>',
+                                            createElement('IFRAME', {srcdoc: x.responseText, width: '100%'})]);
+                        }
+                    });
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div class=full>
+            <img src="i/code.png" alt="CODE" id=logo_img>
+            <table id=bar>
+                <tbody>
+                    <tr>
+                        <td onclick="location.href='index.html';">Home</td>
+                        <td onclick="location.href='games.html';">Games</td>
+                        <td onclick="location.href='resources.html';">Images + Sounds</td>
+                        <td onclick="location.href='code.html';">Code</td>
+                        <td onclick="location.href='contact.html';">Contact</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <div id=main class=PM>
+                Sorry, but your browser is not supported by our website.
+            </div>
+        </div>
+    </body>
+</html>

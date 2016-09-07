@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+        <script src="http://gemdude46.github.io/libs/w3+.js"></script>
+        <script src="http://gemdude46.github.io/libs/$.js"></script>
+        <script src="http://gemdude46.github.io/libs/Canvas++.js"></script>
+        <script src="http://gemdude46.github.io/libs/Interact.js"></script>
+        <script>
+            onload = function(){
+                window.GoGoGo = false;
+                window.c = CreateCanvasObject('display');
+                window.KD = isDown;
+                window.fly = createElement('IMG',{src:'../images/fly.png'});
+                window.frog = createElement('IMG',{src:'../images/frog.png'});
+                window.home = createElement('IMG',{src:'../images/flycatcher_home.png'});
+                window.dead = createElement('IMG',{src:'../images/fly_game_over.png'});
+                $X(GET_s('fly.$'));
+            };
+        </script>
+        <title>Pong</title>
+    </head>
+    <body>
+        <browser not chrome>We recommend using google chrome to play this game.</browser><br>
+        <canvas width=1000 height=600 id=display onclick="GoGoGo=true">HTML5 is required to view this content.</canvas>
+    </body>
+</html>

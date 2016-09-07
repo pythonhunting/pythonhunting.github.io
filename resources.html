@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Hunting | Images + Sounds</title>
+        <link rel=stylesheet type="text/css" href="style.css">
+        <script type="text/javascript">
+            var can_dw = true;
+        
+            function dw(f) {
+                if (!can_dw) return;
+                can_dw = false;
+                setTimeout(function(){
+                    can_dw = true;
+                }, 999);
+                var a = document.createElement('a');
+                a.setAttribute('href', f);
+                a.setAttribute('download', '');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        </script>
+    </head>
+    <body>
+        <div class=full>
+            <img src="i/resources.png" alt="IMAGES and SOUNDS" id=logo_img>
+            <table id=bar>
+                <tbody>
+                    <tr>
+                        <td onclick="location.href='index.html';">Home</td>
+                        <td onclick="location.href='games.html';">Games</td>
+                        <td onclick="location.href='resources.html';">Images + Sounds</td>
+                        <td onclick="location.href='code.html';">Code</td>
+                        <td onclick="location.href='contact.html';">Contact</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <div id=main>
+                <table id=resources_table>
+                    <tbody>
+                        <tr>
+                            <td class=game>Mike</td>
+                            <td class=resources>
+                                <div class=resource onclick="dw('images/cloud.png');">
+                                    <div style='background-image: url("images/cloud.png")'></div>
+                                    <span>cloud.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/Mike.png');">
+                                    <div style='background-image: url("images/Mike.png")'></div>
+                                    <span>Mike.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/Mike_umbrella.png');">
+                                    <div style='background-image: url("images/Mike_umbrella.png")'></div>
+                                    <span>Mike_umbrella.png</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=game>Space Invaders</td>
+                            <td class=resources>
+                                <div class=resource onclick="dw('images/badguy.png');">
+                                    <div style='background-image: url("images/badguy.png")' class=pxl></div>
+                                    <span>badguy.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/fighter.png');">
+                                    <div style='background-image: url("images/fighter.png")' class=pxl></div>
+                                    <span>fighter.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/gameover.png');">
+                                    <div style='background-image: url("images/gameover.png")'></div>
+                                    <span>gameover.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/missile.png');">
+                                    <div style='background-image: url("images/missile.png")' class=pxl></div>
+                                    <span>missile.png</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=game>Pong</td>
+                            <td class=resources>
+                                <div class=resource onclick="dw('images/ball.png');">
+                                    <div style='background-image: url("images/ball.png")' class=pxl></div>
+                                    <span>ball.png</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=game>Fly Catcher</td>
+                            <td class=resources>
+                                <div class=resource onclick="dw('images/fly.png');">
+                                    <div style='background-image: url("images/fly.png")' class=pxl></div>
+                                    <span>fly.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/frog.png');">
+                                    <div style='background-image: url("images/frog.png")' class=pxl></div>
+                                    <span>frog.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/flycatcher_home.png');">
+                                    <div style='background-image: url("images/flycatcher_home.png")'></div>
+                                    <span>flycatcher_home.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/flycatcher_game_over.png');">
+                                    <div style='background-image: url("images/flycatcher_game_over.png")'></div>
+                                    <span>flycatcher_game_over.png</span>
+                                </div>
+                                <div class=resource onclick="dw('sounds/fly-buzz.ogg');">
+                                    <div class=sound></div>
+                                    <span>fly-buzz.ogg</span>
+                                </div>
+                                <div class=resource onclick="dw('sounds/tongue.ogg');">
+                                    <div class=sound></div>
+                                    <span>tongue.ogg</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class=game>Tank Battle</td>
+                            <td class=resources>
+                                <div class=resource onclick="dw('images/TBhomescreen.jpg');">
+                                    <div style='background-image: url("images/TBhomescreen.jpg")'></div>
+                                    <span>TBhomescreen.jpg</span>
+                                </div>
+                                <div class=resource onclick="dw('images/landscape.jpg');">
+                                    <div style='background-image: url("images/landscape.jpg")'></div>
+                                    <span>landscape.jpg</span>
+                                </div>
+                                <div class=resource onclick="dw('images/wall.png');">
+                                    <div style='background-image: url("images/wall.png")'></div>
+                                    <span>wall.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/tankB.png');">
+                                    <div style='background-image: url("images/tankB.png")' class=pxl></div>
+                                    <span>tankB.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/tankG.png');">
+                                    <div style='background-image: url("images/tankG.png")' class=pxl></div>
+                                    <span>tankG.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/lives_1B.png');">
+                                    <div style='background-image: url("images/lives_1B.png")' class=pxl></div>
+                                    <span>lives_1B.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/lives_2B.png');">
+                                    <div style='background-image: url("images/lives_2B.png")' class=pxl></div>
+                                    <span>lives_2B.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/lives_3B.png');">
+                                    <div style='background-image: url("images/lives_3B.png")' class=pxl></div>
+                                    <span>lives_3B.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/lives_1G.png');">
+                                    <div style='background-image: url("images/lives_1G.png")' class=pxl></div>
+                                    <span>lives_1G.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/lives_2G.png');">
+                                    <div style='background-image: url("images/lives_2G.png")' class=pxl></div>
+                                    <span>lives_2G.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/lives_3G.png');">
+                                    <div style='background-image: url("images/lives_3G.png")' class=pxl></div>
+                                    <span>lives_3G.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/ammobox.png');">
+                                    <div style='background-image: url("images/ammobox.png")' class=pxl></div>
+                                    <span>ammobox.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/shell.png');">
+                                    <div style='background-image: url("images/shell.png")' class=pxl></div>
+                                    <span>shell.png</span>
+                                </div>
+                                <div class=resource onclick="dw('images/bluewins.jpg');">
+                                    <div style='background-image: url("images/bluewins.jpg")'></div>
+                                    <span>bluewins.jpg</span>
+                                </div>
+                                <div class=resource onclick="dw('images/greenwins.jpg');">
+                                    <div style='background-image: url("images/greenwins.jpg")'></div>
+                                    <span>greenwins.jpg</span>
+                                </div>
+                                <div class=resource onclick="dw('sounds/shell.ogg');">
+                                    <div class=sound></div>
+                                    <span>shell.ogg</span>
+                                </div>
+                                <div class=resource onclick="dw('sounds/tank_hit.ogg');">
+                                    <div class=sound></div>
+                                    <span>tank_hit.ogg</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

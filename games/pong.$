@@ -1,0 +1,119 @@
+#include <dom>
+#include <me>
+#include <constants>
+#include <random>
+
+me.nice = 2147000000
+
+def arr() = args;
+def fix_angle(a) = a {
+    if a >= 2*pi
+        return a - 2*pi
+    if a < 0
+        return a + 2*pi
+}
+def get_dir() = (random(pi/3)+(pi/3))+pi*randbool();
+
+mid = arr(500,300)
+
+lbp = rbp = 260
+ls = rs = 0
+
+
+bx = 500
+by = 300
+bd = get_dir()
+bs = 12
+
+c = window.c
+ball = window.ball
+
+GLOBALS.lbop = GLOBALS.rbop = -69
+
+c.fill('black')
+
+c.drawCircle(mid, 50, '#0b0')
+c.drawRegPoly(mid, 3, 40, '#070', pi/2)
+
+while JS('!GoGoGo') yield
+
+start = lf = now
+
+while 1 {
+
+    if now-start > 60500 {
+        c.drawText(arr(250,150,'center'), 'score', '70px Roboto', '#f0f')
+        c.drawText(arr(750,150,'center'), 'score', '70px Roboto', '#f0f')
+        
+        c.drawText(arr(250,300,'center'), ls, '60px Arial', 'white')
+        c.drawText(arr(750,300,'center'), rs, '60px Arial', 'white')
+        
+        c.drawText(arr(555,555), 'Press Space to restart', '30px Arial', 'white')
+        
+        while !window.KD('space') yield
+        lbp = rbp = 260
+        ls = rs = 0
+        bx = 500
+        by = 300
+        bd = get_dir()
+        bs = 12
+        start = now
+    }
+    
+    if by < 25 || by > 575
+        bd = fix_angle(pi-bd)
+    
+    if window.KD('a') && lbp > 0
+        lbp -= 10
+    if window.KD('z') && lbp < 520
+        lbp += 10
+    
+    if window.KD('up') && rbp > 0
+        rbp -= 10
+    if window.KD('down') && rbp < 520
+        rbp += 10
+    
+    if (bx < 40 && lbp - by < 25 && lbp - by > -105 && bd > pi) || (bx > 960 && rbp - by < 25 && rbp - by > -105 && bd < pi) {
+        bd = fix_angle((random(pi/4)-pi/8)-bd)
+        if (0 < bd && bd < pi/6) || (pi*5/6 < bd && bd < pi)
+            bd = random(pi/3)+(pi/3)
+        else if (pi < bd && bd < pi*7/6) || (pi*11/6 < bd && bd < pi*2)
+            bd = random(pi/3)+pi/0.75
+        if (bx < 500 && now - GLOBALS.lbop < 50) || (bx > 500 && now - GLOBALS.rbop < 50)
+            bs = 18
+    }
+        
+    
+    bx += bs * sin bd
+    by += bs * cos bd
+    
+    if bx < 0 {
+        rs++
+        bx = 500
+        by = 300
+        bd = get_dir()
+        bs = 12
+    }
+    
+    if bx > 1000 {
+        ls++
+        bx = 500
+        by = 300
+        bd = get_dir()
+        bs = 12
+    }
+    
+    c.fill('black')
+    c.drawCircle(mid, 50, 'white')
+    c.drawCircle(mid, 47, 'black')
+    c.drawRect(arr(499,50,3,550), 'white')
+    c.drawRect(arr(10+(now - GLOBALS.lbop < 50)*10,lbp,6,80))
+    c.drawRect(arr(984-(now - GLOBALS.rbop < 50)*10,rbp,6,80))
+    c.drawText(arr(20,40), ls, '30px Arial')
+    c.drawText(arr(980,40,'right'), rs, '30px Arial')
+    c.drawText(arr(500,40,'center'), 0|((now-start)/1000), '30px Arial')
+    c.blit(arr(bx-25,by-25),ball)
+    yield
+    while now - lf < 32 yield
+    lf = now
+}

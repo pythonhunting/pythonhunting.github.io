@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Hunting</title>
+        <link rel=stylesheet type="text/css" href="style.css">
+        <style>
+            #player {
+                bottom: 0;
+                width: 15%;
+                position: absolute;
+                left: 42.5%;
+            }
+            .missile {
+                width: 1px;
+                height: 8px;
+                position: absolute;
+                background-color:#f00;
+            }
+            .invader {
+                position: absolute;
+                width: 7%;
+            }
+            #game {
+                overflow: hidden;
+            }
+            noscript {
+                font-size: xx-large;
+            }
+        </style>
+        <script src="http://gemdude46.github.io/libs/JGolf.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            OL(function(){
+                g=EI('game');
+                p=AC(g,CE('IMG',{src:'images/fighter.png',id:'player'}));
+                x=42.5;
+                lk=rk=false;
+                f=true;
+                setInterval(function(){
+                    if(!f)return;
+                    if(lk)x-=0.8;
+                    if(rk)x+=0.8;
+                    x=x<0?0:(x>85?85:x);
+                    p.style.left=x+'%';
+                    Array.from(g.getElementsByTagName('DIV')).forEach(function(e){
+                        var y=parseFloat(e.style.bottom)+10;
+                        e.style.bottom=y+'px';
+                        if(y>g.offsetHeight)RM(e);
+                        
+                    });
+                    Array.from(g.getElementsByTagName('IMG')).forEach(function(e){
+                        if(e.id=='player')return;
+                        var x=parseFloat(e.style.left)+(parseInt(GA(e,'d'))*100/g.offsetWidth),
+                            y=parseFloat(e.style.bottom)-parseFloat(GA(e,'s'));
+                        e.style.bottom=y+'px';
+                        e.style.left=x+'%';
+                        if(x<0||x>93)SA(e,'d',-parseInt(GA(e,'d')))
+                        var flag;
+                        Array.from(g.getElementsByTagName('DIV')).forEach(function(E){
+                            var fl=E.offsetLeft>e.offsetLeft&&E.offsetLeft<e.offsetLeft+e.offsetWidth&&
+                            E.offsetTop>e.offsetTop&&E.offsetTop<e.offsetTop+e.offsetHeight;
+                            if(fl)RM(E);
+                            flag = flag || fl;
+                        })
+                        if(y<-0.07*g.offsetWidth||flag)RM(e);
+                        
+                    });
+                },30);
+                setInterval(function(){if(f)AC(g,CE('IMG',{src:'images/invader2.png',
+                style:'bottom:'+g.offsetHeight+'px;left:'+(Math.random()*73+10)+'%;',
+                s:Math.random()*7+3,d:Math.random()*18-9,class:'invader'}))},500);
+            });
+            onkeydown=function(e){
+                if(e.keyCode==39)rk=true;
+                if(e.keyCode==37)lk=true;
+                if(e.keyCode==32&&g.childElementCount<25)AC(g,CE('DIV',{class:'missile',style:'left:'+(x+7.5)+'%;bottom:'+(g.offsetWidth*0.07)+'px'}));
+            };
+            onkeyup=function(e){
+                if(e.keyCode==39)rk=false;
+                if(e.keyCode==37)lk=false;
+            };
+            onfocus=function(){f=true;};
+            onblur=function(){f=false;};
+        </script>
+    </head>
+    <body>
+        <div class=full id=game></div>
+        <div class=full>
+            <noscript> JavaScript is required to use this site. </noscript>
+            <img src="i/logo.png" alt="PYTHON HUNTING" id=logo_img>
+            <table id=bar>
+                <tbody>
+                    <tr>
+                        <td onclick="location.href='index.html';">Home</td>
+                        <td onclick="location.href='games.html';">Games</td>
+                        <td onclick="location.href='resources.html';">Images + Sounds</td>
+                        <td onclick="location.href='code.html';">Code</td>
+                        <td onclick="location.href='contact.html';">Contact</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
