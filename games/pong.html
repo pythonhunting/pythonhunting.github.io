@@ -2,16 +2,16 @@
 <html>
     <head>
         <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
-        <script src="http://gemdude46.github.io/libs/w3+.js"></script>
-        <script src="http://gemdude46.github.io/libs/$.js"></script>
-        <script src="http://gemdude46.github.io/libs/Canvas++.js"></script>
-        <script src="http://gemdude46.github.io/libs/Interact.js"></script>
+        <script src="//gemdude46.github.io/libs/w3+.js"></script>
+        <script src="//gemdude46.github.io/libs/$.js"></script>
+        <script src="//gemdude46.github.io/libs/Canvas++.js"></script>
+        <script src="//gemdude46.github.io/libs/Interact.js"></script>
         <script>
             onload = function(){
                 window.GoGoGo = false;
                 window.c = CreateCanvasObject('display');
                 window.KD = isDown;
-                window.ball = createElement('IMG',{src:'../images/Ball.png'});
+                window.ball = createElement('IMG',{src:'../images/ball.png'});
                 $X(GET_s('pong.$'));
                 onKeyDown('q',     function(){$GLOBALS.lbop = performance.now();}, 300);
                 onKeyDown('shift', function(){$GLOBALS.rbop = performance.now();}, 300);
