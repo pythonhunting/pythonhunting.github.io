@@ -186,3 +186,8 @@ td.resources {
 .game_icon img {
     width: 100%;
 }
+
+.browser_req {
+    border: 3px solid black;
+    padding: 3px;
+}
