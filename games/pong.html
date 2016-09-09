@@ -21,7 +21,24 @@
         <link rel=stylesheet type="text/css" href="../style.css">
     </head>
     <body>
-        <browser not chrome class=browser_req>We recommend using google chrome to play this game.</browser><br>
-        <canvas width=1000 height=600 id=display onclick="GoGoGo=true">HTML5 is required to view this content.</canvas>
+        <div class=full>
+            <img src="i/games.png" alt="GAMES" id=logo_img>
+            <table id=bar>
+                <tbody>
+                    <tr>
+                        <td onclick="location.href='index.html';">Home</td>
+                        <td onclick="location.href='games.html';">Games</td>
+                        <td onclick="location.href='resources.html';">Images + Sounds</td>
+                        <td onclick="location.href='code.html';">Code</td>
+                        <td onclick="location.href='contact.html';">Contact</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <center>
+                <browser not chrome class="browser_req PM">We recommend using google chrome to play this game.</browser><br>
+                <canvas width=1000 height=600 id=display onclick="GoGoGo=true">HTML5 is required to view this content.</canvas>
+            </center>
+        </div>
     </body>
 </html>
