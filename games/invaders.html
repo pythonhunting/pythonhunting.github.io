@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Python Hunting | Play Space Invaders</title>
+        <link rel=stylesheet type="text/css" href="../style.css">
+        <script src="//gemdude46.github.io/libs/Canvas++.js"></script>
+        <script src="//gemdude46.github.io/libs/Interact.js"></script>
+    </head>
+    <body>
+        <div class=full>
+            <img src="i/pong.png" alt="PONG" id=logo_img>
+            <table id=bar>
+                <tbody>
+                    <tr>
+                        <td onclick="location.href='../index.html';">Home</td>
+                        <td onclick="location.href='../games.html';">Games</td>
+                        <td onclick="location.href='../resources.html';">Images + Sounds</td>
+                        <td onclick="location.href='../code.html';">Code</td>
+                        <td onclick="location.href='../contact.html';">Contact</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <center>
+                <browser not chrome class="browser_req PM">We recommend using google chrome to play this game.</browser><br><br>
+                <canvas width=640 height=650 id=display>HTML5 is required to view this content.</canvas>
+                <script>
+                    var c = createCanvasObject('display'), m = 's';
+                    setInverval(function(){
+                        if (m=='s'){
+                            c.fill('black');
+                            c.drawCircle([320, 325], 50, '#0b0');
+                            c.drawRegPoly([320,325], 3, 40, '#070', Math.PI/2);
+                        }
+                        if (m=='g'){
+                            c.fill('black');
+                        }
+                    },16);
+                </script>
+            </center>
+            <br><br>
+            <div class=PM id=main>Controls:<br>
+                LEFT ARROW - move left<br>
+                RIGHT ARROW - right right<br>
+                SPACE - shoot
+            </div>
+            <br><br>
+        </div>
+    </body>
+</html>
