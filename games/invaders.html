@@ -23,10 +23,10 @@
             <br><br>
             <center>
                 <browser not chrome class="browser_req PM">We recommend using google chrome to play this game.</browser><br><br>
-                <canvas width=640 height=650 id=display>HTML5 is required to view this content.</canvas>
+                <canvas width=640 height=650 id=display onclick="m=m=='s'?'g':m">HTML5 is required to view this content.</canvas>
                 <script>
                     var c = CreateCanvasObject('display'), m = 's';
-                    setInverval(function(){
+                    setInterval(function(){
                         if (m=='s'){
                             c.fill('black');
                             c.drawCircle([320, 325], 50, '#0b0');
