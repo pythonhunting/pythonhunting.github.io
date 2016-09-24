@@ -44,7 +44,7 @@ html, body, .full {
     cursor: pointer;
 }
 
-#bar td:last-child() {
+#bar td:last-child {
     white-space: nowrap;
 }
 
