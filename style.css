@@ -44,6 +44,10 @@ html, body, .full {
     cursor: pointer;
 }
 
+#bar td:last-child() {
+    white-space: nowrap;
+}
+
 .sound_dl {
     line-height: 32px;
 }
