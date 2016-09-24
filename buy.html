@@ -5,7 +5,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript" src="https://l2.io/ip.js?var=ip"></script>
         <script type="text/javascript">
-            onload=function(){$.get("//ipinfo.io/"+ip,function(r){/*location.href=r.country=='UK'?'https://www.amazon.co.uk/Python-Hunting-Learning-way-want/dp/1535196955':'https://www.amazon.com/Python-Hunting-Learning-way-want/dp/1535196955';*/ alert(r.country)},'jsonp');};
+            onload=function(){$.get("//ipinfo.io/"+ip,function(r){open(r.country=='GB'?'https://www.amazon.co.uk/Python-Hunting-Learning-way-want/dp/1535196955':'https://www.amazon.com/Python-Hunting-Learning-way-want/dp/1535196955', '_blank');},'jsonp');};
         </script>
     </head>
     <body></body>
