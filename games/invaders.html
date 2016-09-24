@@ -5,6 +5,7 @@
         <link rel=stylesheet type="text/css" href="../style.css">
         <script src="//gemdude46.github.io/libs/Canvas++.js"></script>
         <script src="//gemdude46.github.io/libs/Interact.js"></script>
+        <script src="//gemdude46.github.io/libs/+.js"></script>
     </head>
     <body>
         <div class=full>
@@ -17,6 +18,7 @@
                         <td onclick="location.href='../resources.html';">Images + Sounds</td>
                         <td onclick="location.href='../code.html';">Code</td>
                         <td onclick="location.href='../contact.html';">Contact</td>
+                        <td onclick="location.href='../buy.html';">Buy the Book</td>
                     </tr>
                 </tbody>
             </table>
@@ -26,6 +28,8 @@
                 <canvas width=640 height=650 id=display onclick="m=m=='s'?'g':m">HTML5 is required to view this content.</canvas>
                 <script>
                     var c = CreateCanvasObject('display'), m = 's';
+                    var invader_img = createElement('IMG', {src: '/images/badguy.png'}),
+                        fighter_img = createElement('IMG', {src: '/images/fighter.png'});
                     setInterval(function(){
                         if (m=='s'){
                             c.fill('black');
@@ -34,6 +38,7 @@
                         }
                         if (m=='g'){
                             c.fill('black');
+                            
                         }
                     },16);
                 </script>
