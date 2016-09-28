@@ -5,8 +5,9 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript" src="https://l2.io/ip.js?var=ip"></script>
         <script type="text/javascript">
-            if(document.referrer.indexOf('amazon')>0)window.history?history.go(-1):location.href='/';
-            onload=function(){$.get("//ipinfo.io/"+ip,function(r){location.href=r.country=='GB'?'https://www.amazon.co.uk/Python-Hunting-Learning-way-want/dp/1535196955':'https://www.amazon.com/Python-Hunting-Learning-way-want/dp/1535196955';},'jsonp');};
+            if(document.referrer.indexOf('amazon')<0)
+                onload=function(){$.get("//ipinfo.io/"+ip,function(r){location.href=r.country=='GB'?'https://www.amazon.co.uk/Python-Hunting-Learning-way-want/dp/1535196955':'https://www.amazon.com/Python-Hunting-Learning-way-want/dp/1535196955';},'jsonp');};
+            else window.history?history.go(-1):location.href='/';
         </script>
     </head>
     <body></body>
