@@ -30,6 +30,9 @@
                     var c = CreateCanvasObject('display'), m = 's';
                     var invader_img = createElement('IMG', {src: '/images/badguy.png'}),
                         fighter_img = createElement('IMG', {src: '/images/fighter.png'});
+                    
+                    var score = 0;
+                    var f_x = 320;
                     setInterval(function(){
                         if (m=='s'){
                             c.fill('black');
@@ -37,8 +40,10 @@
                             c.drawRegPoly([320,325], 3, 40, '#070', Math.PI/2);
                         }
                         if (m=='g'){
+                            if (isDown('LEFT') && f_x > 0) f_x -= 3;
+                            if (isDown('RIGHT') && f_x < 540) f_x += 3;
                             c.fill('black');
-                            
+                            c.blit([f_x,591], fighter_img);
                         }
                     },16);
                 </script>
