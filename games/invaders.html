@@ -25,14 +25,29 @@
             <br><br>
             <center>
                 <browser not chrome class="browser_req PM">We recommend using google chrome to play this game.</browser><br><br>
-                <canvas width=640 height=650 id=display onclick="m=m=='s'?'g':m">HTML5 is required to view this content.</canvas>
+                <canvas width=640 height=650 id=display onclick="m=='s'&&setup()">HTML5 is required to view this content.</canvas>
                 <script>
                     var c = CreateCanvasObject('display'), m = 's';
                     var invader_img = createElement('IMG', {src: '/images/badguy.png'}),
                         fighter_img = createElement('IMG', {src: '/images/fightera.png'});
                     
-                    var score = 0;
-                    var f_x = 320;
+                    var score;
+                    var f_x;
+                    var missiles;
+                    
+                    onKeyDown('SPACE', function(){
+                        if (m != 'g') return;
+                        missiles.push([f_x+50, 591]);
+                    });
+                    
+                    function setup(){
+                        score = 0;
+                        f_x = 270;
+                        misiles = [];
+                        
+                        m = 'g';
+                    }
+                    
                     setInterval(function(){
                         if (m=='s'){
                             c.fill('black');
@@ -43,7 +58,17 @@
                             if (isDown('LEFT') && f_x > 0) f_x -= 3;
                             if (isDown('RIGHT') && f_x < 540) f_x += 3;
                             c.fill('black');
+                            for (var missile_i = missiles.length-1; missile_i > -1; missile_i--) {
+                                var missile = missiles[missile_i];
+                                if (missile[1] < -2) {
+                                    missiles.splice(missile_i, 1);
+                                    continue;
+                                }
+                                missile[1] -= 5;
+                                c.drawRect([missile[0], missile[1], 1, 8], '#f00');
+                            }
                             c.blit([f_x,591], fighter_img);
+                            c.drawText([0,20,'left'], 'Score: ' + score, '20px arial', 'white');
                         }
                     },16);
                 </script>
