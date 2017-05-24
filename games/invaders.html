@@ -51,6 +51,12 @@
                     }
                     
                     setInterval(function(){
+                        if (m=='g') {
+                            invaders.push([320, -100, 1, 1]);
+                        }
+                    }, 512);
+                    
+                    setInterval(function(){
                         if (m=='s'){
                             c.fill('black');
                             c.drawCircle([320, 325], 50, '#0b0');
@@ -87,7 +93,7 @@
                     addEventListener("keydown", function(e) {
                         if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
                             e.preventDefault();
-                        } console.log(e.keyCode);
+                        }
                     }, false);
                 </script>
             </center>
