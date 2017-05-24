@@ -34,6 +34,7 @@
                     var score;
                     var f_x;
                     var missiles;
+                    var invaders;
                     
                     onKeyDown('SPACE', function(){
                         if (m != 'g') return;
@@ -44,6 +45,7 @@
                         score = 0;
                         f_x = 270;
                         missiles = [];
+                        invaders = [];
                         
                         m = 'g';
                     }
@@ -67,10 +69,26 @@
                                 missile[1] -= 5;
                                 c.drawRect([missile[0], missile[1], 1, 8], '#f00');
                             }
+                            for (var invader_i = invaders.length-1; invader_i > -1; invader_i--) {
+                                var invader = invaders[invader_i];
+                                if (invader[1] > 650) {
+                                    invader.splice(invader_i, 1);
+                                    continue;
+                                }
+                                invader[0] += invader[2];
+                                invader[1] += invader[3];
+                                c.blit(invader, invader_img);
+                            }
                             c.blit([f_x,591], fighter_img);
-                            c.drawText([0,20,'left'], 'Score: ' + score, '20px arial', 'white');
+                            c.drawText([10,20,'left'], 'Score: ' + score, '15px arial', 'white');
                         }
                     },16);
+                    
+                    addEventListener("keydown", function(e) {
+                        if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                            e.preventDefault();
+                        } console.log(e.keyCode);
+                    }, false);
                 </script>
             </center>
             <br><br>
