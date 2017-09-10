@@ -37,11 +37,13 @@ html, body, .full {
     background-color: white;
 }
 
-#bar td {
+#bar td, #bar a {
     font-family: PM;
     text-align: center;
-    width: 16.6666666%;
+    width: 16.6665%;
     cursor: pointer;
+	color: black;
+	text-decoration: none;
 }
 
 #bar td:last-child {

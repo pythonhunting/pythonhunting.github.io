@@ -89,25 +89,58 @@
         <div class=full>
             <noscript> JavaScript is required to use this site. </noscript>
             <img src="i/logo.png" alt="PYTHON HUNTING" id=logo_img>
-            <table id=bar>
-                <tbody>
-                    <tr>
-                        <td onclick="location.href='index.html';">Home</td>
-                        <td onclick="location.href='games.html';">Games</td>
-                        <td onclick="location.href='resources.html';">Images + Sounds</td>
-                        <td onclick="location.href='code.html';">Code</td>
-                        <td onclick="location.href='contact.html';">Contact</td>
-                        <td onclick="location.href='buy.html';">Buy the Book</td>
-                    </tr>
-                </tbody>
-            </table>
-            <ul id=ll>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="code.html">Code</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="https://www.amazon.com/Python-Hunting-Learning-way-want/dp/1535196955">Buy</a></li>
-            </ul>
+<table id=bar class=PM>
+	<tbody>
+		<tr>
+			<td>
+				<a href="/index.html">Home</a>
+			</td>
+			<td>
+				<a href="/games.html">Games</a>
+			</td>
+			<td>
+				<a href="/resources.html">Images + Sounds</a>
+			</td>
+			<td>
+				<a href="/code.html">Code</a>
+			</td>
+			<td>
+				<a href="/contact.html">Contact</a>
+			</td>
+			<td>
+				<a id=booklink href="https://www.amazon.com/Python-Hunting-Learning-way-want/dp/1535196955">Buy the Book</a>
+				<script>
+					function use_uk() {
+						document.querySelector('#booklink').setAttribute('href', 'https://www.amazon.co.uk/Python-Hunting-Learning-way-want/dp/1535196955');
+					}
+
+					if (localStorage.getItem('cc')) {
+						if (localStorage.getItem('cc') === 'GB') {
+							use_uk();
+						}
+					} else {
+						var ipxhr = new XMLHttpRequest();
+					
+						ipxhr.open('GET', '//ip-api.io/json/');
+	
+						ipxhr.onreadystatechange = evt => {
+							if (ipxhr.readyState === 4 && +ipxhr.status === 200) {
+								var ipdat = JSON.parse(ipxhr.responseText);
+	
+								if (ipdat.country_code === 'GB') {
+									use_uk();
+									localStorage.setItem('cc', ipdat.country_code);
+								}
+							}
+						};
+
+						ipxhr.send(null);
+					}
+				</script>
+			</td>
+		</tr>
+	</tbody>
+</table>
         </div>
     </body>
 </html>
